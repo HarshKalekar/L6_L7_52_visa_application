@@ -1,18 +1,22 @@
 # L6_L7_52 — Visa Application
 
-Lab 6: Code and Branch Coverage
+## Lab 6: Code and Branch Coverage
 
-## About
+Application module: `visa_application.py`  
+Coverage test suites:
+- `CodeCoverageTest_visa_application.py` — broad line/function coverage.
+- `BranchCoverageTest_visa_application.py` — exercises both outcomes of each decision.
 
-A small Python module that works out visa fees by visa type, entries, processing speed and nationality group, checks whether documents are complete and reports application status.
+Install and run from this directory:
 
-## Files
+```bash
+python -m pip install pytest coverage
+coverage erase
+coverage run -m pytest -q CodeCoverageTest_visa_application.py
+coverage report -m visa_application.py
+coverage erase
+coverage run --branch -m pytest -q BranchCoverageTest_visa_application.py
+coverage report -m visa_application.py
+```
 
-| File | Description |
-|------|-------------|
-| `visa_application.py` | The module under test |
-| `test_visa_application.py` | Starter test file |
-
-Keep all your Lab 6 work in this `LAB6` folder. Lab 7 will be added to this repo later.
-
-Refer to the lab handout for instructions.
+The starter `test_visa_application.py` is retained for reference. The two named suites above are the submission test files.

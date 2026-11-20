@@ -1,16 +1,15 @@
 # L6_L7_52 — Visa Application
 
-Lab 7: Fuzz Testing
+## Lab 7: Hypothesis Fuzz Testing
 
-## About
+- `visa_application.py` — validated application parsing, processing-day averaging, and fee calculation.
+- `test_visa_application.py` — Hypothesis property-based fuzz tests plus explicit malformed-input regression tests.
 
-A small Python module that parses visa applications, averages processing times and works out the payable fee after a discount.
+Install dependencies and run from this directory:
 
-## Files
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -v
+```
 
-| File | Description |
-|------|-------------|
-| `visa_application.py` | The code under test |
-| `test_visa_application.py` | Starter test file |
-
-Refer to the lab handout for instructions.
+Malformed or unsupported inputs are rejected with `ValueError`; valid values are checked against calculation properties. Hypothesis generates additional examples and shrinks failures to minimal counterexamples.
